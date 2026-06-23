@@ -1,3 +1,40 @@
+# Project Context
+
+**Purpose:** Help users who keep school or university notes test themselves from that material. An AI agent generates tests from the given educational content—no more and no less.
+
+**Notes workflow (Obsidian recommended):**
+- Every note must have two hashtags: `#ready` or `#notready`, and `#test` or `#notest`.
+- New notes start as `#notready` and `#notest`.
+- The user decides when a note is ready and changes the hashtag to `#ready`.
+- Only the agent may change `#notest` to `#test` (after generating a test for a ready note).
+- A ready note with a test includes a link to the test immediately after the hashtags. If missing, check the note and add the link.
+
+**Storage:** The web app and tests are stored locally on the user's PC only.
+
+**In the case the user uses Obsidian:** DON'T TOUCH .obsdian.
+
+# Technical details of the project
+- /web folder keeps only the code for the web application.
+- Web application loads tests from `/alltests`. Each test is one JSON file.
+- Each file has a `questions` array. Every question has a `type` field so new question types can be added without changing the file format.
+- For now, use `type: "multiple_choice"` with `question` (string), `options` (array of strings), and `correct` (0-based index into `options`).
+
+Example:
+
+```json
+{
+  "questions": [
+    {
+      "type": "multiple_choice",
+      "question": "How many countries are there in the world?",
+      "options": ["190", "155", "205", "195"],
+      "correct": 3
+    }
+  ]
+}
+```
+
+# Rules For Codind
 ## 1. Think Before Coding
 
 **Don't assume. Don't hide confusion. Surface tradeoffs.**
