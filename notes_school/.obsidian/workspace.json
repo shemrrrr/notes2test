@@ -1,0 +1,191 @@
+{
+  "main": {
+    "id": "7fed651518bd827d",
+    "type": "split",
+    "children": [
+      {
+        "id": "23d42b7bcd273e41",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3fccf2bd486f8069",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "VLAN.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "VLAN"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "26d17cc6adc010f6",
+    "type": "split",
+    "children": [
+      {
+        "id": "7289d59c09d12bb1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "884cbe13b2489a69",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "3f01b4e67a2d7a42",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "643198d45f002913",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "89adb85b2bdf8c1a",
+    "type": "split",
+    "children": [
+      {
+        "id": "d2616de33ffa0562",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "abf22e3cce1cf8b1",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "VLAN.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for VLAN"
+            }
+          },
+          {
+            "id": "1ca57d801dc7e0bb",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "VLAN.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from VLAN"
+            }
+          },
+          {
+            "id": "f519b8d078d9a9bf",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "507264a2e600acb6",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "a5f27824192ae152",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "VLAN.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of VLAN"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "3fccf2bd486f8069",
+  "lastOpenFiles": [
+    "VLAN.md",
+    "Welcome.md"
+  ]
+}
