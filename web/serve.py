@@ -8,14 +8,16 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 WEB = ROOT / "web"
 ALLTESTS = ROOT / "alltests"
-PORT = 5173
+PORT = 5050
 
 
 class Handler(http.server.SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
+        """Serve files from the web directory by default."""
         super().__init__(*args, directory=str(WEB), **kwargs)
 
     def do_GET(self):
+        """Serve /alltests JSON files directly while keeping the normal web app behavior."""
         if self.path.startswith("/alltests/"):
             rel = self.path.removeprefix("/alltests/").split("?")[0]
             file_path = ALLTESTS / rel

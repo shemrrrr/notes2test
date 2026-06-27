@@ -13,19 +13,34 @@
 
 **In the case the user uses Obsidian:** DON'T TOUCH .obsdian.
 
-# Technical details of the project
+# Technical Details Of The Project
+Project structure:
+- /alltests contains generated test JSON files consumed by the web app.
+- /alltests/index.json is the test catalog used by the app.
 - /web folder keeps only the code for the web application.
+
+- The UI is fully static and client-side for now; there is no backend API beyond serving JSON files.
 - Web application loads tests from `/alltests`. Each test is one JSON file.
-- Each file has a `questions` array. Every question has a `type` field so new question types can be added without changing the file format.
-- For now, use `type: "multiple_choice"` with `question` (string), `options` (array of strings), and `correct` (0-based index into `options`).
+
+Test file structure:
+- `title`: string with the test name.
+- `source`: string path to the source note file in `/notes_school`.
+- `questions`: array of question objects.
+
+Each question object contains:
+- `type`: string identifying the question form.
+- `question`: the question text.
+- `options`: array of answer strings.
+- `correct`: 0-based index of the correct option.
 
 Example:
-
 ```json
 {
+  "title": "Geography",
+  "source": "notes_school/Geography.md",
   "questions": [
     {
-      "type": "multiple_choice",
+      "type": "single_choice",
       "question": "How many countries are there in the world?",
       "options": ["190", "155", "205", "195"],
       "correct": 3
@@ -33,6 +48,33 @@ Example:
   ]
 }
 ```
+## All question types you are allowed to use and short instructions how implement them:
+- `single_choice`:
+JSON Structure: options is an array of strings. correct is a single integer representing the 0-based index of the right answer.
+UI/UX Implementation: Render the options using HTML radio buttons (<input type="radio">).
+Validation: Evaluation is instant and client-side. The question is correct if selected === correct.
+
+- `multiple_choice`:
+JSON Structure: options is an array of strings. correct is an array of integers representing all 0-based indices that must be selected.
+UI/UX Implementation: Render the options using HTML checkboxes (<input type="checkbox">).
+Validation: The question is correct only if the user's selected indices match the correct array exactly (no missing correct answers, and no extra incorrect answers checked).
+
+- `single_number`:
+JSON Structure: options is omitted. correct is a single float or integer.
+UI/UX Implementation: Render a single HTML number input field (<input type="number">).
+Validation: Convert the user's input string to a number. The question is correct if user_number === correct.
+Note: To keep validation robust, your UI logic should accept both integers and decimals depending on the question context.
+
+- `single_term`:
+JSON Structure: options is omitted. correct is an array of acceptable string variations (e.g., ["Paris", "paris"] or ["DNA", "Deoxyribonucleic acid"]) to prevent accidental failure due to casing or synonyms.
+UI/UX Implementation: Render a single text input field (<input type="text">).
+Validation: Trim whitespace from the user's input. The question is correct if correct.includes(user_input.trim().toLowerCase()) (assuming you store the correct array elements in lowercase for easiest comparison).
+
+- `long_answer`: 
+(will be implemented in the future due to complex correction checkin; don't use this type for now).
+JSON Structure: options is omitted. correct will contain a list of mandatory keywords, semantic criteria, or a sample answer string.
+UI/UX Implementation: Render an HTML textarea field (<textarea>).
+Validation: Left unimplemented for now.
 
 # Rules For Codind
 ## 1. Think Before Coding
@@ -89,4 +131,10 @@ For multi-step tasks, state a brief plan:
 3. [Step] → verify: [check]
 ```
 
-Strong success criteria let you loop independently. Weak criteria ("make it work") require constant clarification.
+## 5. Commenting for Readability
+
+**Every function should include a short comment explaining its purpose.**
+
+- Add a brief comment before each function so reviewers can understand the code quickly.
+- Keep comments concise and focused on what the function does.
+- Do not leave functions uncommented when adding or editing code.

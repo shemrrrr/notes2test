@@ -25,7 +25,7 @@ With port-based VLANs, exactly one VLAN is assigned to each port of a switch. Di
 
 ### Tagged VLAN
 
-Tagged VLANs represent an extension of the Ethernet standard and can only be used with switches specifically designed for this purpose. The Ethernet frame is extended by the so-called tag, which represents the VLAN ID of the associated network packet. The VLAN tag is four bytes long, of which 12 bits are used for the VLAN tag. Mathematically, this results in the possibility of creating 4096 VLANs. Due to the changing length of the packets, the method is only applicable to switches and network devices designed for it.
+Tagged VLANs represent an extension of the Ethernet standard and can only be used with switches specifically designed for this purpose. The Ethernet frame is extended by the so-called tag, which represents the VLAN ID of the associated network packet. The VLAN tag is four bytes long, of which 12 bits are used for the VLAN ID. Mathematically, this results in the possibility of creating 4096 VLANs. Due to the changing length of the packets, the method is only applicable to switches and network devices designed for it.
 
 The tag is used to mark the affiliation of packets to a VLAN. As a result, packets of several VLANs can be transmitted over a single port. These ports can be well utilized for connecting switches and significantly reduce the wiring effort. Today, a mixture of port- and tag-based VLANs is used in modern switches. So-called access ports for connecting devices are assigned to a VLAN (port-based), while tagging is used on ports for coupling network devices like switches or routers. This makes it possible to use the advantages of VLAN tagging without all devices in the network having to be able to handle tags.
 

@@ -14,86 +14,66 @@
       "correct": 0
     },
     {
-      "type": "single_choice",
-      "question": "Why is a router or Layer 3 switch required when using VLANs?",
+      "type": "multiple_choice",
+      "question": "Which of these are benefits of dividing a network into VLANs?",
       "options": [
-        "To assign IP addresses to every port",
-        "To connect VLANs and mediate between different IP subnets",
-        "To encrypt traffic between switch ports",
-        "To replace managed switches entirely"
+        "Better security through segmentation",
+        "Reduced broadcast traffic in each segment",
+        "Automatic encryption of every packet",
+        "Easier administration of logical groups"
+      ],
+      "correct": [0, 1, 3]
+    },
+    {
+      "type": "single_number",
+      "question": "How many bits long is the VLAN ID field in the IEEE 802.1Q tag?",
+      "correct": 12
+    },
+    {
+      "type": "single_term",
+      "question": "What term is used for a port that carries traffic for multiple VLANs and is often used to connect switches?",
+      "correct": ["trunk port", "trunk"]
+    },
+    {
+      "type": "single_choice",
+      "question": "Why does a router or Layer 3 switch become necessary when using VLANs?",
+      "options": [
+        "To assign IP addresses to every end device",
+        "To connect separate VLANs that use different IP subnets",
+        "To replace the need for switches completely",
+        "To prevent all broadcast traffic"
       ],
       "correct": 1
     },
     {
-      "type": "single_choice",
-      "question": "What is the main security benefit of VLAN segmentation?",
+      "type": "multiple_choice",
+      "question": "Select the VLAN-related features that are typically associated with tagged traffic.",
       "options": [
-        "It eliminates the need for firewalls",
-        "It makes access to data and devices in different subnets harder for attackers",
-        "It prevents all broadcasts on the network",
-        "It automatically encrypts all Ethernet frames"
+        "Frames carry a VLAN tag in the header",
+        "Traffic can be forwarded across trunk links",
+        "Each switch port is limited to one VLAN only",
+        "The receiving device can identify the VLAN membership"
       ],
-      "correct": 1
+      "correct": [0, 1, 3]
+    },
+    {
+      "type": "single_number",
+      "question": "How many VLANs can be identified with a 12-bit VLAN ID?",
+      "correct": 4096
+    },
+    {
+      "type": "single_term",
+      "question": "Name the VLAN type where a port is assigned permanently by an administrator until changed manually.",
+      "correct": ["static vlan", "static"]
     },
     {
       "type": "single_choice",
-      "question": "How does VLAN segmentation reduce network load?",
+      "question": "What is the main advantage of VLAN segmentation for security?",
       "options": [
-        "By disabling QoS on all switches",
-        "By keeping broadcasts within their respective subnet",
-        "By removing the need for routers",
-        "By limiting each VLAN to a single device"
-      ],
-      "correct": 1
-    },
-    {
-      "type": "single_choice",
-      "question": "In a port-based VLAN, how many VLANs are assigned to each switch port?",
-      "options": ["Exactly one", "Up to four", "As many as the administrator chooses per packet", "None; ports are shared dynamically"],
-      "correct": 0
-    },
-    {
-      "type": "single_choice",
-      "question": "How long is the VLAN tag in a tagged VLAN Ethernet frame?",
-      "options": ["2 bytes", "4 bytes", "8 bytes", "12 bytes"],
-      "correct": 1
-    },
-    {
-      "type": "single_choice",
-      "question": "How many VLANs can be created using the 12-bit VLAN ID in the tag?",
-      "options": ["256", "1024", "4096", "65536"],
-      "correct": 2
-    },
-    {
-      "type": "single_choice",
-      "question": "What characterizes a static VLAN?",
-      "options": [
-        "Port assignment changes automatically based on packet content",
-        "Port assignment is permanently specified until reconfigured by the administrator",
-        "VLANs are created only through tagging on every port",
-        "Devices must move physically to change VLAN membership"
-      ],
-      "correct": 1
-    },
-    {
-      "type": "single_choice",
-      "question": "How does a dynamic VLAN assign a port to a VLAN?",
-      "options": [
-        "The administrator manually reprograms the port for every device",
-        "The switch uses programmable rules based on packet characteristics such as MAC address or protocol type",
-        "Each port is permanently bound to one VLAN at factory setup",
-        "Tagged frames are stripped before the switch makes any decision"
-      ],
-      "correct": 1
-    },
-    {
-      "type": "single_choice",
-      "question": "In modern switches, what is typically true of access ports versus trunk ports?",
-      "options": [
-        "Access ports use tagging; trunk ports are port-based only",
-        "Access ports connect devices to one VLAN; trunk ports carry tagged traffic between network devices",
-        "Both require every connected device to handle VLAN tags",
-        "Trunk ports are used only for end-user workstations"
+        "It removes the need for physical security",
+        "It makes it harder for unauthorized users to reach unrelated groups",
+        "It guarantees zero network latency",
+        "It replaces all routing and switching logic"
       ],
       "correct": 1
     }
