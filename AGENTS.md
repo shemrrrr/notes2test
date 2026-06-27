@@ -1,5 +1,4 @@
 # Project Context
-
 **Purpose:** Help users who keep school or university notes test themselves from that material. An AI agent generates tests from the given educational content—no more and no less.
 
 **Notes workflow (Obsidian recommended):**
@@ -13,12 +12,13 @@
 
 **In the case the user uses Obsidian:** DON'T TOUCH .obsdian.
 
+
 # Technical Details Of The Project
 Project structure:
-- /alltests contains generated test JSON files consumed by the web app.
-- /alltests/index.json is the test catalog used by the app.
-- /web folder keeps only the code for the web application.
-
+- `/alltests` contains generated test JSON files consumed by the web app.
+- `/alltests/index.json` is the test catalog used by the app; contains `id`, `title` and note `source` for every existing test.
+- `/web` folder keeps only the code for the web application.
+- If there are other folders in the repository, they should probably be for the note storage.
 - The UI is fully static and client-side for now; there is no backend API beyond serving JSON files.
 - Web application loads tests from `/alltests`. Each test is one JSON file.
 
@@ -75,6 +75,20 @@ Validation: Trim whitespace from the user's input. The question is correct if co
 JSON Structure: options is omitted. correct will contain a list of mandatory keywords, semantic criteria, or a sample answer string.
 UI/UX Implementation: Render an HTML textarea field (<textarea>).
 Validation: Left unimplemented for now.
+
+
+.# Instructions For The Interaction With The User (NOT DEVELOPEMENT RELATED)
+- If the user asks to create a new test:
+1. Scan the local files in /*users directory for notes* to find notes that contain the #ready and #notest hashtags.
+2. If no notes meet this criteria, inform the user that there are no new notes ready for testing, and remind them to update their note hashtags to #ready when they want a test generated.
+3. For the target note, generate the test items using only the content inside that note (do not hallucinate or pull outside data). Stick strictly to the allowed question types.
+4. Save the generated test as a new JSON file inside /alltests.
+5. Update /alltests/index.json to include the new test metadata
+6. Modify the source note file: Change the #notest hashtag to #test, and append a direct Markdown link to the local web app test path immediately following the hashtags. Crucial: If the user is using Obsidian, do not modify or touch anything inside the .obsidian directory.
+7. Inform the user that the test has been successfully generated and is available in their local web app catalog.
+- If the user asks to delete a test:
+- If the user asks to change an existing test:
+
 
 # Rules For Codind
 ## 1. Think Before Coding
