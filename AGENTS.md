@@ -15,12 +15,12 @@
 
 # Technical Details Of The Project
 Project structure:
-- `/alltests` contains generated test JSON files consumed by the web app.
-- `/alltests/index.json` is the test catalog used by the app; contains `id`, `title` and note `source` for every existing test.
-- `/web` folder keeps only the code for the web application.
+- /alltests contains generated test JSON files consumed by the web app.
+- /alltests/index.json is the test catalog used by the app; contains `id`, `title` and note `source` for every existing test.
+- /web folder keeps only the code for the web application.
 - If there are other folders in the repository, they should probably be for the note storage.
 - The UI is fully static and client-side for now; there is no backend API beyond serving JSON files.
-- Web application loads tests from `/alltests`. Each test is one JSON file.
+- Web application loads tests from /alltests. Each test is one JSON file.
 
 Test file structure:
 - `title`: string with the test name.
@@ -77,7 +77,7 @@ UI/UX Implementation: Render an HTML textarea field (<textarea>).
 Validation: Left unimplemented for now.
 
 
-.# Instructions For The Interaction With The User (NOT DEVELOPEMENT RELATED)
+# Instructions For The Interaction With The User (NOT DEVELOPEMENT RELATED)
 - If the user asks to create a new test:
 1. Scan the local files in /*users directory for notes* to find notes that contain the #ready and #notest hashtags.
 2. If no notes meet this criteria, inform the user that there are no new notes ready for testing, and remind them to update their note hashtags to #ready when they want a test generated.
@@ -86,8 +86,22 @@ Validation: Left unimplemented for now.
 5. Update /alltests/index.json to include the new test metadata
 6. Modify the source note file: Change the #notest hashtag to #test, and append a direct Markdown link to the local web app test path immediately following the hashtags. Crucial: If the user is using Obsidian, do not modify or touch anything inside the .obsidian directory.
 7. Inform the user that the test has been successfully generated and is available in their local web app catalog.
+
 - If the user asks to delete a test:
+1. Identify the test the user wants to delete. If the request is ambiguous (e.g., no name given, or multiple tests match), list the candidates and ask the user to confirm which one before proceeding.
+2. Locate the corresponding test JSON file in /alltests and remove it.
+3. Remove the entry for that test from /alltests/index.json.
+4. Locate the source note file referenced in the test's `source` field. In that note, change the #test hashtag back to #notest, and remove the Markdown link to the deleted test that follows the hashtags. Do not touch any other content in the note. Crucial: If the user is using Obsidian, do not modify or touch anything inside the .obsidian directory.
+5. Inform the user that the test has been deleted, the catalog has been updated, and the source note has been reset to #notest.
+
 - If the user asks to change an existing test:
+1. Identify the test the user wants to change. If the request is ambiguous, list the candidates and ask the user to confirm which one before proceeding.
+2. Ask the user what they want to change: the questions themselves, the title, or something else. Do not assume scope.
+3. If regenerating questions from the source note: re-read the source note file identified by the `source` field, and generate the updated questions strictly from its content. Do not hallucinate or pull outside data. If editing specific questions manually as instructed by the user, apply only those targeted changes.
+4. Overwrite the existing test JSON file in /alltests with the updated content. Do not create a new file.
+5. If the title changed, update the corresponding entry in /alltests/index.json to reflect the new title. The `id` and `source` fields must not change.
+6. Do not modify the source note's hashtags or its link — the note already has #test and a link pointing to this test, both of which remain valid.
+7. Inform the user that the test has been updated and is immediately available in their local web app catalog.
 
 
 # Rules For Codind
