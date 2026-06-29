@@ -1,5 +1,5 @@
 // Compare the submitted answers to the expected answers and return scoring details.
-export function scoreTest(questions, answers) {
+function scoreTest(questions, answers) {
   let correct = 0;
   const details = questions.map((q, i) => {
     const selected = answers[i];
@@ -41,3 +41,5 @@ function arraysEqual(left, right) {
   if (left.length !== right.length) return false;
   return left.every((value, index) => value === right[index]);
 }
+
+window.scoreTest = scoreTest;
