@@ -20,8 +20,23 @@
               "icon": "lucide-file",
               "title": "VLAN"
             }
+          },
+          {
+            "id": "9f20454f648d68e0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "VLAN.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "VLAN"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -183,8 +198,9 @@
       "bases:Create new base": false
     }
   },
-  "active": "3fccf2bd486f8069",
+  "active": "9f20454f648d68e0",
   "lastOpenFiles": [
+    "Untitled.md",
     "VLAN.md",
     "Welcome.md"
   ]
