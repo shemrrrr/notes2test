@@ -1,0 +1,91 @@
+window.testCatalog = [
+  {
+    id: "vlan",
+    title: "VLAN",
+    source: "notes_school/VLAN.md",
+  },
+];
+
+window.testsById = {
+  vlan: {
+    title: "VLAN",
+    source: "notes_school/VLAN.md",
+    questions: [
+      {
+        type: "single_choice",
+        question: "What does VLAN stand for?",
+        options: [
+          "Virtual Local Area Network",
+          "Variable Link Access Node",
+          "Verified LAN Architecture",
+          "Virtual Layer Access Network",
+        ],
+        correct: 0,
+      },
+      {
+        type: "multiple_choice",
+        question: "Which of these are benefits of dividing a network into VLANs?",
+        options: [
+          "Better security through segmentation",
+          "Reduced broadcast traffic in each segment",
+          "Automatic encryption of every packet",
+          "Easier administration of logical groups",
+        ],
+        correct: [0, 1, 3],
+      },
+      {
+        type: "single_number",
+        question: "How many bits long is the VLAN ID field in the IEEE 802.1Q tag?",
+        correct: 12,
+      },
+      {
+        type: "single_term",
+        question: "What term is used for a port that carries traffic for multiple VLANs and is often used to connect switches?",
+        correct: ["trunk port", "trunk"],
+      },
+      {
+        type: "single_choice",
+        question: "Why does a router or Layer 3 switch become necessary when using VLANs?",
+        options: [
+          "To assign IP addresses to every end device",
+          "To connect separate VLANs that use different IP subnets",
+          "To replace the need for switches completely",
+          "To prevent all broadcast traffic",
+        ],
+        correct: 1,
+      },
+      {
+        type: "multiple_choice",
+        question: "Select the VLAN-related features that are typically associated with tagged traffic.",
+        options: [
+          "Frames carry a VLAN tag in the header",
+          "Traffic can be forwarded across trunk links",
+          "Each switch port is limited to one VLAN only",
+          "The receiving device can identify the VLAN membership",
+        ],
+        correct: [0, 1, 3],
+      },
+      {
+        type: "single_number",
+        question: "How many VLANs can be identified with a 12-bit VLAN ID?",
+        correct: 4096,
+      },
+      {
+        type: "single_term",
+        question: "Name the VLAN type where a port is assigned permanently by an administrator until changed manually.",
+        correct: ["static vlan", "static"],
+      },
+      {
+        type: "single_choice",
+        question: "What is the main advantage of VLAN segmentation for security?",
+        options: [
+          "It removes the need for physical security",
+          "It makes it harder for unauthorized users to reach unrelated groups",
+          "It guarantees zero network latency",
+          "It replaces all routing and switching logic",
+        ],
+        correct: 1,
+      },
+    ],
+  },
+};

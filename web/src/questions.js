@@ -67,14 +67,14 @@ function renderSingleTerm(q, index) {
 }
 
 // Choose the correct renderer for a question and return its HTML.
-export function renderQuestion(q, index) {
+function renderQuestion(q, index) {
   const fn = renderers[q.type];
   if (!fn) throw new Error(`Unknown question type: ${q.type}`);
   return fn(q, index);
 }
 
 // Collect the selected answers from the submitted form.
-export function collectAnswers(form, questions) {
+function collectAnswers(form, questions) {
   return questions.map((q, i) => {
     if (q.type === "single_choice") {
       const selected = form.querySelector(`input[name="q${i}"]:checked`);
@@ -109,3 +109,6 @@ function escapeHtml(text) {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
 }
+
+window.renderQuestion = renderQuestion;
+window.collectAnswers = collectAnswers;
