@@ -16,11 +16,20 @@
 # Technical Details Of The Project
 Project structure:
 - /alltests contains generated test JSON files consumed by the web app.
-- /alltests/index.json is the test catalog used by the app; contains `id` (name of the JSON file), `title` and note `source` for every existing test.
+- /alltests/index.json is the test catalog used by the app; it contains an array of entries with `id` (the test JSON file name), `title`, and `source` for every existing test.
 - /web folder keeps only the code for the web application.
 - If there are other folders in the repository, they should probably be for the note storage.
-- The UI is fully static and client-side for now; there is no backend API beyond serving JSON files.
-- Web application loads tests from /alltests. Each test is one JSON file.
+
+Index file structure:
+```json
+[
+  {
+    "id": "vlan",
+    "title": "VLAN",
+    "source": "notes_school/VLAN.md"
+  }
+]
+```
 
 Test file structure:
 - `title`: string with the test name.
@@ -84,7 +93,7 @@ Validation: Left unimplemented for now.
 3. For the target note, generate the test items using only the content inside that note (do not hallucinate or pull outside data). Stick strictly to the allowed question types. And try to be creative, use all types of allowed question types.
 4. Save the generated test as a new JSON file inside /alltests.
 5. Update /alltests/index.json to include the new test metadata
-6. Modify the source note file: Change the #notest hashtag to #test, and append a direct Markdown link to the local web app test path immediately following the hashtags. Reference: `[Test](http://localhost:5173/?test=test)` Crucial: If the user is using Obsidian, do not modify or touch anything inside the .obsidian directory.
+6. Modify the source note file: Change the #notest hashtag to #test, and append a direct Markdown link to the local web app test path immediately following the hashtags. Reference: `[Test_Name](http://localhost:5173/?test=test_id)` Crucial: If the user is using Obsidian, do not modify or touch anything inside the .obsidian directory.
 7. Inform the user that the test has been successfully generated and is available in their local web app catalog.
 
 - If the user asks to delete a test:

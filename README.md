@@ -7,3 +7,13 @@ You decide when a note is ready and change the hashtag to `#ready`. Only the age
 A ready note with a test will have a link to the test right after the hashtags. If it does not, ask the agent to check the note and add the link.
 
 The web app and tests are stored on your PC only, so you have complete control over them.
+
+
+### Get Started
+1. Clone to the repo where you have your notes.
+2. Delete example note and test by running reset.bat or reset.sh.
+3. This is a dynamic web app, means you have to serve it to use in browser. It can be done with the executing of serve.py or by running nodejs server (recommended):
+`cd web`
+`npm install` //only by first run to install node modules
+`npm run dev`
+both methods open 5173 port where you can use the app.
