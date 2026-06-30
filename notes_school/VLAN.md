@@ -1,5 +1,4 @@
-#test #ready
-[Test: VLAN](http://localhost:5173/?test=vlan)
+#test #ready [Test](http://localhost:5173/?test=vlan)  
 
 A VLAN is a **Virtual Local Area Network**, meaning the virtual - or logical, as opposed to the physical - implementation of a local network. VLANs primarily serve the segmentation of local networks. In contrast to a conventional switched network, when using VLANs, not all devices on all switch ports can communicate directly with each other. For this reason, the use of a router or a Layer 3 switch (a switch with a routing function that can mediate between different IP subnets) is required to connect VLANs.
 
